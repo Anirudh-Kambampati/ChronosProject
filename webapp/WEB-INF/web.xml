@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Chronos_Tryout</display-name>
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+		<welcome-file>signup.html</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+        <servlet-name>AddEventServlet</servlet-name>
+        <servlet-class>calendar.AddEventServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddEventServlet</servlet-name>
+        <url-pattern>/AddEventServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>DeleteEventServlet</servlet-name>
+    	<servlet-class>calendar.DeleteEventServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+    	<servlet-name>DeleteEventServlet</servlet-name>
+    	<url-pattern>/DeleteEventServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoadEventsServlet</servlet-name>
+    	<servlet-class>calendar.LoadEventsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+    	<servlet-name>LoadEventsServlet</servlet-name>
+    	<url-pattern>/LoadEventsServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

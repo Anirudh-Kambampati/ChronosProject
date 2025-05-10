@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up to Chronos</title>
+    <link rel="stylesheet" type="text/css" href="auth.css">
+    <script src="https://kit.fontawesome.com/b6cd683b35.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Welcome, User</h2>
+        
+        <h3>Sign Up</h3>
+    <form method="post" action="SignupServlet">
+    	<label for="Email">Email</label>
+    	<div class="input-box">
+        	<input type="email" id="Email" name="email" placeholder="Email" required> <br>
+    	</div>
+    
+    	<label for="Username">Username</label>
+    	<div class="input-box">
+        	<input type="text" id="Username" name="username" minlength="6" maxlength="12" placeholder="Username" required> <br>
+    	</div>
+    
+    	<label for="Password">Password</label>
+    	<div class="input-box">
+        	<input type="password" id="Password" name="password" minlength="6" placeholder="********" required> <br>
+    	</div>
+    
+    	<label for="Confirm-Password">Confirm Password</label>
+    	<div class="input-box">
+        	        <input type="password" id="Confirm-Password" minlength="8" placeholder="********" required 
+       		oninput="this.setCustomValidity(this.value !== document.getElementById('Password').value ? 'Passwords do not match!' : '')">
+       	 	<br>
+    	</div>
+	
+    	<button type="submit">
+        	<i class="fa-solid fa-user"></i> Sign up
+   		</button>
+	</form>
+
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+
+    </div>
+
+</body>
+</html>

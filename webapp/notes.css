@@ -1,0 +1,454 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #051f30;
+    --background-dark: #000000;
+    --secondaryBackground: #0a2c42;
+    --text: #f5f5f5;
+    --purple: #64b6e5;
+    --teal: #3a8cbc;
+    --accent: #64b6e5;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background), var(--background-dark));
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: var(--text);
+    display: flex;
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    scrollbar-width: none;
+    overflow: hidden auto;
+    background: rgba(255, 255, 255, 0.07);
+    -ms-overflow-style: none;
+    padding: 30px 10px 30px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    z-index: 100;
+}
+
+.menu:hover {
+    width: 220px;
+}
+
+.menu-content {
+    padding-top: 20px;
+}
+
+.menu-content li {
+    list-style: none;
+    border-radius: 0 12px 12px 0;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.menu-content li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.menu-content li:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(0deg, var(--teal), var(--purple));
+    border-radius: 0 2px 2px 0;
+}
+
+.menu-content li span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu:hover .menu-content li span:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 12px 0;
+}
+
+.material-symbols-outlined {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-right: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.menu-content li:hover .material-symbols-outlined {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #64b6e5, #3a8cbc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}.wrapper {
+  margin: 50px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+.wrapper li {
+  height: 250px;
+  list-style: rgb(30, 30, 242);
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+  background: #004080;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.add-box,
+.icon,
+.bottom-content,
+.popup,
+header,
+.settings .menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-box {
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+}
+.add-box .icon {
+  height: 78px;
+  width: 78px;
+  color: #626CD6;
+  font-size: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2px dashed #626CD6;
+}
+.add-box p {
+  color: #626CD6;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.note .details {
+  max-height: 165px;
+  overflow-y: auto;
+}
+.note .details::-webkit-scrollbar,
+.popup textarea::-webkit-scrollbar {
+  width: 0;
+}
+.note .details:hover::-webkit-scrollbar,
+.popup textarea:hover::-webkit-scrollbar {
+  width: 5px;
+}
+.note .details:hover::-webkit-scrollbar-track,
+.popup textarea:hover::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.note .details:hover::-webkit-scrollbar-thumb,
+.popup textarea:hover::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
+  border-radius: 25px;
+}
+.note p {
+  font-size: 22px;
+  font-weight: 500;
+}
+.note span {
+  display: block;
+  color: #575757;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.note .bottom-content {
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.bottom-content span {
+  color: #6D6D6D;
+  font-size: 14px;
+}
+.bottom-content .settings {
+  position: relative;
+}
+.bottom-content .settings i {
+  color: #6D6D6D;
+  cursor: pointer;
+  font-size: 15px;
+}
+.settings .menu {
+  z-index: 1;
+  bottom: 0;
+  right: -5px;
+  padding: 5px 0;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: bottom right;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+.settings.show .menu {
+  transform: scale(1);
+}
+.settings .menu li {
+  height: 25px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 17px 15px;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+.menu li:last-child {
+  margin-bottom: 0;
+}
+
+.menu li i {
+  padding-right: 8px;
+}
+.popup-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+.popup-box .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+.popup-box,
+.popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+.popup-box.show,
+.popup-box.show .popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-box.show .popup {
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup .content {
+  border-radius: 5px;
+  background: rgb(0, 0, 128);
+  width: calc(100% - 15px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.content header {
+  padding: 15px 25px;
+  border-bottom: 1px solid #ccc;
+}
+.content header p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.content header i {
+  color: #8b8989;
+  cursor: pointer;
+  font-size: 23px;
+}
+.content form {
+  margin: 15px 25px 35px;
+}
+.content form .row {
+  margin-bottom: 20px;
+}
+form .row label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+form :where(input, textarea) {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+form :where(input, textarea):focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+}
+form .row textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+form button {
+  width: 100%;
+  height: 50px;
+  color: #004080;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 4px;
+  background: #626CD6;
+}
+@media (max-width: 660px) {
+  .wrapper {
+    margin: 15px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+  .popup-box .popup {
+    max-width: calc(100% - 15px);
+  }
+  .bottom-content .settings i {
+    font-size: 17px;
+  }
+}
+/* Settings menu container */
+.settings {
+  position: relative;
+  height:20 px;
+}
+
+/* Menu that contains edit/delete buttons */
+.settings .menu {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  background: #0a2c42;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  transform-origin: bottom right;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+/* Show menu when active */
+.settings.show .menu,
+.settings .menu.show {
+  transform: scale(1);
+}
+
+/* Menu items (buttons) */
+.settings .menu li {
+  list-style: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(6, 32, 74,0.2);
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for menu items */
+.settings .menu li:hover {
+  background: rgba(100, 182, 229, 0.2);
+}
+
+/* Edit button specific styling */
+.settings .menu li.edit-btn {
+  color: #64b6e5;
+}
+
+.settings .menu li.edit-btn:hover {
+  background: rgba(100, 182, 229, 0.1);
+}
+
+/* Delete button specific styling */
+.settings .menu li.delete-btn {
+  color: #ff6b6b;
+}
+
+.settings .menu li.delete-btn:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* Icons in buttons */
+.settings .menu li i {
+  height: 10px;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Ellipsis icon that triggers the menu */
+.settings i.uil-ellipsis-h {
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.settings i.uil-ellipsis-h:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.note {
+    background:  rgba(6, 32, 74,0.2); /* Dark background */
+    color: #f5f5f5; /* Light text */
+}

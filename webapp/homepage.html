@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos - Your productivity companion</title>
+    <script src="https://kit.fontawesome.com/b6cd683b35.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="home.css">
+
+<body>
+	
+	<div id="alerts-container"></div>
+    <div class="menu">
+        <ul class="menu-content"> 
+            <li>
+                <a href="homepage.html" class="active">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.jsp">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+             <li>
+                <a href="notes.html">
+                    <span class="material-symbols-outlined">add_notes</span>
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="logout" id="logout-link">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="content">
+    	<div id="alerts-container"></div>
+        <header>
+            <h1>CHRONOS</h1>
+            <div class="main-section">
+                <h2>Welcome to your timeline</h2>
+                <p>Manage your time efficiently with Chronos</p>
+                <br>
+            </div>
+            
+        </header>
+        <div class="main-content">
+        
+            <div class="todo-container">
+                <div class="todo-widget">
+                    <div class="stats-container">
+                        <div class="details">
+                            <h1>Your Tasks</h1>
+                            <p>Keep it up!</p>
+                            <div id="progressBar">
+                                <div id="progress"></div>
+                            </div><br>
+                            <div class="stats-numbers">
+                                <p id="numbers">0/0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button id="modal-button" class="btn-primary">Add Task</button>
+                    <br>
+                    <ul id="task-list">
+                        <!-- Tasks will be loaded here dynamically -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timer-container-wrapper">
+                <div class="timer-widget">
+                    <div class="timer-container">
+                        <h2>Focus Timer</h2>
+                        <div class="timer-progress">
+                            <div class="timer-progress-bar" id="timerProgressBar"></div>
+                        </div>
+                        <div id="timerDisplay" aria-live="polite">25:00</div>
+                        <div class="timer-label" id="timerStatus">Ready to start</div>
+                        <div class="timer-btns">
+                            <button id="startTimer" class="btn-primary">Start Focus</button>
+                            <button id="pauseTimer" class="btn-secondary">Pause</button>
+                            <button id="resetTimer" class="btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="break-container">
+                        <h2>Break Timer</h2>
+                        <div class="timer-progress">
+                            <div class="timer-progress-bar" id="breakProgressBar"></div>
+                        </div>
+                        <div id="breakDisplay" aria-live="polite">05:00</div>
+                        <div class="timer-label" id="breakStatus">Ready</div>
+                        <div class="timer-btns">
+                            <button id="startBreak5" class="btn-primary">5 Min Break</button>
+                            <button id="startBreak10" class="btn-primary">10 Min Break</button>
+                            <button id="pauseBreak" class="btn-secondary">Pause</button>
+                            <button id="resetBreak" class="btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Task Modal -->
+    <div class="modal-container" id="modal">
+        <div class="modal">
+            <form id="task-form" action="TaskServlet">
+                
+                <h2 id="modal-title">Add New Task</h2>
+                <input type="hidden" id="id" name="task_id" required>
+                <div class="form-group">
+                    <label for="task-name">
+                        <i class="fa-solid fa-list-check" style="color: #fafafa;"></i>
+                        Task Heading
+                    </label>
+                    <div class="input-box">
+                        <input type="text" id="task-name" name="task_name" placeholder="Enter task name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">
+                        <i class="fa-solid fa-pen-nib" style="color: #fafafa;"></i>
+                        Description
+                    </label>
+                    <div class="textarea">
+                        <textarea id="description" name="description" placeholder="Add task details" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="due-date">
+                        <i class="fa-solid fa-calendar-days" style="color: #fafafa;"></i>
+                        Date and Time
+                    </label>
+                    <div class="input-box">
+                        <input type="datetime-local" id="due-date" name="date_time">
+                    </div>
+                </div>
+                                
+                <div class="modal-buttons">
+                    <button type="button" id="cancel-modal" class="btn-secondary">
+                        <i class="fa-solid fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" id="submit-task" class="btn-primary">
+                        <i class="fa-solid fa-circle-check"></i> Save Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+   	
+    <script src="home.js"></script>
+</body>
+</html>
